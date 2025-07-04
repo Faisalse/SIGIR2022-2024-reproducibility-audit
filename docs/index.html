@@ -35,7 +35,7 @@
 						
 							<nav id="nav" style="font-weight: bold;">
 								<ul>
-								  <!-- <li><a href="index.html">Home</a></li> -->
+								  <li><a href="#" data-load="sourcecode.html">Source code and dataset</a></li>
 								  <li><a href="#" data-load="paper_analysis.html">Considered papers</a></li>
 								  <li><a href="#" data-load="checkylist.html">Interactive checklist</a></li>
 								</ul>
@@ -43,9 +43,7 @@
 				</div>
 			<!-- Banner -->
 				<div class="box">
-					
-						
-                         
+	
 				</div>
 
 				<div class="box" id="table-placeholder"></div>
@@ -69,7 +67,7 @@
 						});
 					
 						// Automatically load the default content
-						const defaultLink = document.querySelector('a[data-load="paper_analysis.html"]');
+						const defaultLink = document.querySelector('a[data-load="sourcecode.html"]');
 						if (defaultLink) {
 							const file = defaultLink.getAttribute('data-load');
 							fetch(file)

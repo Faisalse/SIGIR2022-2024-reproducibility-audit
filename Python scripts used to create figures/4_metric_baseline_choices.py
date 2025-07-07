@@ -1,56 +1,17 @@
 import matplotlib.pyplot as plt
-import requests
 from pathlib import Path
-import pandas as pd
 import numpy as np
 
 
-plt.rcParams['font.family'] = 'Arial'
-plt.rcParams.update({
-    'font.size': 12          # Default text size
-})
-
-path = Path("Python scripts used to create figures/Statistics.csv")
-# Correct Sheet ID and GID
-sheet_id = "19yPAqB0W1EtANUX3iFP0EE7F5c3EmdLRvu9GR2M9ljs"
-gid = "1516783209"
-# CSV export URL
-url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
-# Request the CSV
-response = requests.get(url)
-# Save to file if response is OK
-if response.status_code == 200 and "text/csv" in response.headers.get("Content-Type", ""):
-    with open(path, "wb") as f:
-        f.write(response.content)
-    print("Statistics downloaded for the collected papers and saved as 'Statistics.csv'")
-else:
-    print("Fail to download the statistics of the collected papers. Here's the response:")
-    print(response.text[:500])
-
-
-
-# read data
-data = pd.read_csv(path)
-data = data.iloc[:41, :]
-data = data.iloc[2:, :]
-col_to_drop = [0, 2]
-data = data.drop(data.columns[[0, 2]], axis = 1)
-data = data.T
-data.columns = data.iloc[0]
-data = data[1:].reset_index(drop=True)
-
-
-
-
 # baselines.....
-baseline_state_of_the_art = len( [i for i in data["Choice of baselines"] if i == "State-of-the-art" ]  )
-baseline_no_justification_provided = len( [i for i in data["Choice of baselines"] if i == "No justification provided" ]  )
-baseline_refer_to_baseline_papers = len( [i for i in data["Choice of baselines"] if i == "Refer to baseline papers" ]  )
+baseline_state_of_the_art = 38 
+baseline_no_justification_provided = 26
+baseline_refer_to_baseline_papers = 1
 
 # metric values.............
-metrics_popularity_based = len( [i for i in data["Choice of metrics"] if i == "Popularity" ]  )
-metrics_no_justification_provided = len( [i for i in data["Choice of metrics"] if i == "No justification provided" ]  )
-metrics_refer_to_baseline_papers = len( [i for i in data["Choice of metrics"] if i == "Refer to baseline papers" ]  )
+metrics_popularity_based = 29
+metrics_no_justification_provided = 20
+metrics_refer_to_baseline_papers = 16
 
 categories = ["", "No justification provided", "Refer to baseline papers"]
 baseline_values = [baseline_state_of_the_art, baseline_no_justification_provided, baseline_refer_to_baseline_papers]

@@ -68,16 +68,20 @@
         
 <div class="box">
 
-	<p align="justify">Graph Neural Networks (GNNs) have shown impressive performance in various domains. Motivated by this success, several GNN-based session-based recommender systems (SBRS) have been proposed over the past few years. The literature suggests that these
-							algorithms can achieve strong performance and outperform well established baseline neural models. However, some recent reproducibility studies suggest that the performance achieved by more
-							complex GNN-based models may sometimes be overstated and that these models may not be as impactful as expected. Moreover, an
-							inconsistent choice of datasets, preprocessing steps, and evaluation protocols across published works makes it difficult to reliably assess
-							progress in the field. In this present study, we reassess the performance of three well-established baseline models—GRU4Rec, NARM,
-							and STAMP—and compare them to six more recent GNN-based SBRS within a standardized evaluation framework. Experiments
-							on commonly used datasets for SBRS reveal that in particular the GRU4Rec model, if properly tuned, is still highly competitive and leads to the best results on two out of three datasets. Furthermore,
-							we find that the performance of the GNN-based models varies largely across datasets. Interestingly, only the quite early SR-GNN
-							model turns out to be superior in terms of accuracy metrics on one of the datasets. Overall, we speculate that the reasons for our
-							surprising result may lie in insufficient hyperparameter tuning processes for the baselines in the original papers.
+	<p align="justify">Issues with reproducibility have been identified as a major factor hampering progress in recommender systems research. 
+		In response, researchers increasingly share the code of their models. However, the provision of only the code of the proposed model 
+		is usually not sufficient to ensure reproducibility. In many works, the central claim is that a new model is advancing the 
+		state-of-the-art. Thus, it is crucial that the entire experiment is reproducible, including the configuration and the results of the 
+		considered baselines.
+		With this work, our goal is to gauge the level of reproducibility in algorithms research in recommender systems.
+		We systematically analyzed the reproducibility level of
+		65 papers published at a top-ranked conference during the last three years. Our results are sobering. While the model code is shared 
+		in about two thirds of the papers, the code of the baselines is provided only in eight cases. The hyperparameters of the baselines are 
+		reported even less frequently, and how these were <em>exactly</em> determined is not explained in any paper. As a result, it is 
+		commonly not only impossible to reproduce the full result tables reported in the papers,
+		it is also unclear if the claimed improvements over the state-of-the-art were actually achieved. 
+		Overall, we conclude that the research community has not reached the required level of reproducibility yet. 
+		We therefore call for more rigorous reproducibility standards to ensure progress in this field.
 						</p>
                             
 							
